@@ -181,64 +181,70 @@
             padding: 20px;
             border: 1px solid #d1d5db; /* Gray-300 */
             width: 90%;
-            max-width: 700px; /* Increased max-width for potentially long content */
+            max-width: 700px; 
             border-radius: 0.5rem; /* Rounded-lg */
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            max-height: 85vh; /* Limit height and allow scrolling */
+            max-height: 85vh; 
             display: flex;
             flex-direction: column;
         }
         .modal-header {
-            padding-bottom: 0.75rem; /* pb-3 */
-            border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+            padding-bottom: 0.75rem; 
+            border-bottom: 1px solid #e5e7eb; 
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .modal-title {
-            font-size: 1.5rem; /* text-2xl */
-            font-weight: 600; /* font-semibold */
-            color: #374151; /* text-gray-700 */
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            color: #374151; 
         }
         .modal-close-button {
-            color: #9ca3af; /* text-gray-400 */
-            font-size: 2.25rem; /* text-4xl */
+            color: #9ca3af; 
+            font-size: 2.25rem; 
             font-weight: bold;
             cursor: pointer;
             line-height: 1;
         }
         .modal-close-button:hover,
         .modal-close-button:focus {
-            color: #4b5563; /* text-gray-600 */
+            color: #4b5563; 
             text-decoration: none;
         }
         .modal-body {
-            margin-top: 0.75rem; /* mt-3 */
-            color: #374151; /* text-gray-700 */
-            overflow-y: auto; /* Allow scrolling for prayer content */
-            flex-grow: 1; /* Allow body to take available space */
+            margin-top: 0.75rem; 
+            color: #374151; 
+            overflow-y: auto; 
+            flex-grow: 1; 
         }
         .modal-footer {
-            padding-top: 0.75rem; /* pt-3 */
-            border-top: 1px solid #e5e7eb; /* border-gray-200 */
-            margin-top: 1rem; /* mt-4 */
+            padding-top: 0.75rem; 
+            border-top: 1px solid #e5e7eb; 
+            margin-top: 1rem; 
             display: flex;
             justify-content: flex-end;
         }
         .modal-done-button {
-            padding-left: 1rem; /* px-4 */
+            padding-left: 1rem; 
             padding-right: 1rem;
-            padding-top: 0.5rem; /* py-2 */
+            padding-top: 0.5rem; 
             padding-bottom: 0.5rem;
-            background-color: #3b82f6; /* bg-blue-500 */
+            background-color: #3b82f6; 
             color: white;
-            font-size: 1rem; /* text-base */
-            font-weight: 500; /* font-medium */
-            border-radius: 0.375rem; /* rounded-md */
+            font-size: 1rem; 
+            font-weight: 500; 
+            border-radius: 0.375rem; 
         }
         .modal-done-button:hover {
-            background-color: #2563eb; /* hover:bg-blue-700 */
+            background-color: #2563eb; 
         }
+        /* Hide original prayer content divs that are now shown in modal */
+        .prayer-content-holder > div:not(.sub-heading-ml):not(.meditation-note):not(.prayer-leader-box):not(.prayer-congregation-box):not(ol):not(h3) {
+            /* This is a bit broad, might need refinement if other direct children exist */
+           /* display: none; */ /* Re-evaluating this, direct display in page is also fine */
+        }
+
 
     </style>
 </head>
@@ -258,8 +264,6 @@
             <h2 class="text-xl font-semibold mb-4 text-blue-600 border-b pb-2">ഉള്ളടക്കം</h2>
             <ul class="space-y-1">
                 <li><a href="#introduction" class="nav-link active-nav" onclick="showSection('introduction', this)">അവതാരിക</a></li>
-                <li><a href="#structure" class="nav-link" onclick="showSection('structure', this)">നൊവേനയുടെ ഘടന</a></li>
-                <li><a href="#common-prayers" class="nav-link" onclick="showSection('common-prayers', this)">പൊതുപ്രാർത്ഥനകൾ</a></li>
                 <li><a href="#day1" class="nav-link" onclick="showSection('day1', this)">ഒന്നാം ദിവസം</a></li>
                 <li><a href="#day2" class="nav-link" onclick="showSection('day2', this)">രണ്ടാം ദിവസം</a></li>
                 <li><a href="#day3" class="nav-link" onclick="showSection('day3', this)">മൂന്നാം ദിവസം</a></li>
@@ -284,27 +288,27 @@
                 <p class="mb-4">പെന്തക്കുസ്തായ്ക്ക് നമ്മെത്തന്നെ ഒരുക്കാൻവേണ്ടി ഈ നൊവേന ഒമ്പതു ദിവസത്തേയ്ക്ക് നടത്തുവാനാണ് നിശ്ചയിച്ചിരിക്കുന്നത്. എന്നാലും ഈ നൊവേന പ്രാർത്ഥന ഏതു സമയത്തും ചൊല്ലാവുന്നതാണ്. ആദ്ധ്യാത്മികാഭിഷേകം ആവശ്യമാണെന്ന് നമുക്ക് തോന്നുമ്പോഴൊക്കെ ഇത് നടത്താം.</p>
             </section>
 
-            <section id="structure" class="content-section">
-                <h2 class="section-title-ml">നൊവേനയുടെ ഘടന</h2>
-                <ol class="list-decimal list-inside space-y-2 mb-4">
-                    <li>പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം: "പരിശുദ്ധാത്മാവേ എഴുന്നള്ളിവരണേ."</li>
-                    <li>ആമുഖപ്രാർത്ഥന: "ഓ എൻ്റെ ദൈവമേ, അങ്ങു നിർദ്ദേശിച്ചതനുസരിച്ച്..."</li>
-                    <li>പ്രാർത്ഥന 2: (നിർബ്ബന്ധമില്ല). പിതാവും സംരക്ഷകനുമായ ദൈവം.</li>
-                    <li>ദൈവവചനം (അന്നത്തെ ദിവസത്തിനായി)</li>
-                    <li>ലഘുവായ ധ്യാനം (ലീഡർ/പങ്കുവയ്ക്കൽ)</li>
-                    <li>മദ്ധ്യസ്ഥപ്രാർത്ഥന.</li>
-                    <li>സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</li>
-                    <li>ഓ, പരിശുദ്ധ മാതാവേ...</li>
-                    <li>സമാപന പ്രാർത്ഥന (അന്നത്തെ ദിവസത്തിനായി)</li>
-                    <li>പരിശുദ്ധാത്മാവിന് സമർപ്പണം (നിർബ്ബന്ധമില്ല)</li>
-                    <li>പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ (നിർബ്ബന്ധമില്ല)</li>
-                </ol>
-            </section>
-
-            <section id="common-prayers" class="content-section">
-                <h2 class="section-title-ml">പൊതുപ്രാർത്ഥനകൾ</h2>
+            <section id="day1" class="content-section prayer-content-holder">
+                <h2 class="section-title-ml">ഒന്നാം ദിവസം</h2>
+                <div class="intra-day-nav">
+                    <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
+                    <ul>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-vachanam', '4. ദൈവവചനം (ഒന്നാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-dhyanam', '5. ലഘുവായ ധ്യാനം (ഒന്നാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (ഒന്നാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day1-samapanam', '9. സമാപന പ്രാർത്ഥന (ഒന്നാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                    </ul>
+                </div>
+                <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg> 
                 
-                <div id="common-song-hs">
+                <div id="day1-song-hs" class="hidden-prayer-content">
                     <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
                     <div class="prayer-leader-box">
                         <p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ, അങ്ങയുടെ വിശ്വസ്‌തതയുടെയും സ്നേഹത്തിൻ്റെയും അഗ്നിയാൽ ഞങ്ങളെ ജ്വലിപ്പിക്കണമേ,</p>
@@ -313,55 +317,18 @@
                         <p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ ഭൂമിയുടെ മുഖം നവീകരിക്കണമേ.</p>
                     </div>
                 </div>
-
-                <div id="common-introductory-prayer" class="mt-6">
+                <div id="day1-introductory-prayer" class="hidden-prayer-content">
                     <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
                     <div class="prayer-leader-box">
                         <p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ അവിടുത്തെ ആത്മാവിൻ്റെ വെളിച്ചത്താൽ നയിക്കുമല്ലോ. അങ്ങെ ആത്മാവിനെ ഞങ്ങൾക്കും തരണമേ. അങ്ങേ ദിവ്യ പ്രചോദനത്താൽ സത്യത്തെ തിരിച്ചറിയാനും നല്ലത് രുചിച്ചറിയാനും എപ്പോഴും അങ്ങേ സാന്ത്വനത്തിൻ്റെ പരിമളം അനുഭവിക്കാനും ഞങ്ങൾക്ക് ഇടയാകട്ടെ. ഞങ്ങളുടെ കർത്താവായ ഈശോ മിശിഹാ വഴി ഈ പ്രാർത്ഥന ഞങ്ങൾ അങ്ങേക്കു സമർപ്പിക്കുന്നു.</p>
                     </div>
                 </div>
-
-                <div id="common-prayer2-optional" class="mt-6">
+                <div id="day1-prayer2-optional" class="hidden-prayer-content">
                     <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
                     <div class="prayer-leader-box"> <p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും സംരക്ഷകനുമായ ദൈവമേ, ഞങ്ങൾ അങ്ങയെ സ്‌തുതിക്കുന്നു. അവിടുത്തെ സ്നേഹം ഞങ്ങൾക്കു വെളിപ്പെടുത്താനായി മനുഷ്യാവതാരം ചെയ്‌ത ഈശോയേ അങ്ങയെ ഞങ്ങൾ ആരാധിക്കുന്നു. ഞങ്ങളുടെ രക്ഷകനും നാഥനുമാണ് ഈശോ എന്ന തിരിച്ചറിവ് ഞങ്ങൾക്കു നൽകുന്ന പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു.</p>
                         <p class="mt-2">ലോകസ്ഥാപനം മുതൽ അങ്ങേ ദിവ്യസാന്നിദ്ധ്യത്താൽ ഭൂമിയുടെ മുഖം നവീകരിച്ചു കൊണ്ടിരിക്കുന്ന പരിശുദ്ധാത്മാവേ ഞങ്ങൾ അങ്ങയെ മഹത്വപ്പെടുത്തുന്നു. സെഹിയോൻ ഊട്ടുശാലയിൽ ദാഹത്തോടെ കാത്തിരുന്ന പരിശുദ്ധ അമ്മയുടെയും ശ്ലീഹൻമാരുടെയും മേൽ ഇറങ്ങി വന്ന പരിശുദ്ധാത്മാവേ ഈ സമൂഹത്തിന്റെ മേലും ഇറങ്ങി വരണമേ. ഞങ്ങളുടെ ഹൃദയങ്ങളെ അങ്ങയുടെ കൃപയാൽ നിറയ്ക്കണമേ. അവിടുത്തെ ആലയമായ ഞങ്ങളുടെ ശരീരത്തെ അങ്ങ് വിശുദ്ധീകരിക്കണമേ, പിതാവിന്റെയും പുത്രന്റെയും ആത്മാവേ ഞങ്ങൾക്ക് ആഴമുള്ള ദൈവസ്നേഹാനുഭവത്തിലും വിശ്വാസത്തിലും വളരാൻ ആവശ്യമായ കൃപ തരണമേ. ആമേൻ.</p>
                     </div>
                 </div>
-
-                <div id="common-our-father" class="mt-6">
-                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
-                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ, അങ്ങയുടെ നാമം പൂജിതമാകണമേ. അങ്ങയുടെ രാജ്യം വരണമേ. അങ്ങയുടെ തിരുമനസ്സ് സ്വർഗ്ഗത്തിലെപ്പോലെ ഭൂമിയിലുമാകണമേ.</p>
-                        <p class="mt-2">അന്നന്നു വേണ്ട ആഹാരം ഇന്നു ഞങ്ങൾക്കു തരണമേ. ഞങ്ങളോടു തെറ്റു ചെയ്യുന്നവരോടു ഞങ്ങൾ ക്ഷമിക്കുന്നതുപോലെ ഞങ്ങളുടെ തെറ്റുകൾ ഞങ്ങളോടും ക്ഷമിക്കണമേ. ഞങ്ങളെ പ്രലോഭനത്തിൽ ഉൾപ്പെടുത്തരുതേ. തിന്മയിൽനിന്നു ഞങ്ങളെ രക്ഷിക്കണമേ. ആമേൻ.</p>
-                    </div>
-                </div>
-                
-                <div id="common-hail-mary-prayer" class="mt-6">
-                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ, ഞാൻ പാപവഴികൾ ഉപേക്ഷിക്കുന്നതിനും ഈശോയുടെ വിലയേറിയ തിരുരക്തത്താൽ ശുദ്ധീകരിക്കപ്പെടുന്നതിനും പരിശുദ്ധാത്മാവിൻറെ ഫലങ്ങളാൽ നിറയപ്പെടുന്നതിനുമായി അമ്മ പ്രാർത്ഥിക്കണമേ..... പാപത്താൽ കഠിനമാക്കപ്പെട്ട ഹൃദയം എടുത്തുമാറ്റി എസക്കിയേൽ പ്രവാചകൻ വഴി വാഗ്‌ദാനം ചെയ്യപ്പെട്ട പുതിയ ഹൃദയം തരണമേ. "അവർക്കു ഞാൻ ഒരു പുതിയ ഹൃദയം നൽകും; ഒരു പുതിയ ചൈതന്യം അവരിൽ ഞാൻ നിക്ഷേപിക്കും. അവരുടെ ശരീരത്തിൽ നിന്ന് ശിലാഹൃദയം എടുത്തുമാറ്റി ഒരു മാംസളഹൃദയം ഞാൻ കൊടുക്കും. അങ്ങനെ അവർ എന്റെ കൽപ്പനകൾ അനുസരിച്ച് ജീവിക്കുകയും എൻ്റെ നിയമങ്ങൾ ശ്രദ്ധയോടെ പാലിക്കുകയും ചെയ്യും അവർ എൻ്റെ ജനവും ഞാൻ അവരുടെ ദൈവവും ആയിരിക്കും" (എസക്കി 11 : 19,20). പരിശുദ്ധയും സ്നേഹനിധിയുമായ എൻ്റെ അമ്മേ, പരിശുദ്ധാത്മ സ്നേഹത്താൽ നിറഞ്ഞ് മാനസാന്തരത്തിൻ്റെ ഫലങ്ങൾ പുറപ്പെടുവിക്കുന്ന പുതിയ മനുഷ്യനെ ധരിക്കാനായി അമ്മ എനിക്കായി പ്രാർത്ഥിക്കണമേ.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="day1" class="content-section">
-                <h2 class="section-title-ml">ഒന്നാം ദിവസം</h2>
-                <div class="intra-day-nav">
-                    <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
-                    <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day1-vachanam', 'ദൈവവചനം (ഒന്നാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day1-dhyanam', 'ലഘുവായ ധ്യാനം (ഒന്നാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day1-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (ഒന്നാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day1-samapanam', 'സമാപന പ്രാർത്ഥന (ഒന്നാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
-                    </ul>
-                </div>
-                <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg> 
-                
                 <div id="day1-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം : യോഹന്നാൻ 14:15 - 26</h3>
                 </div>
@@ -403,6 +370,17 @@
                         </li>
                     </ol>
                 </div>
+                <div id="day1-our-father" class="hidden-prayer-content">
+                     <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ, അങ്ങയുടെ നാമം പൂജിതമാകണമേ. അങ്ങയുടെ രാജ്യം വരണമേ. അങ്ങയുടെ തിരുമനസ്സ് സ്വർഗ്ഗത്തിലെപ്പോലെ ഭൂമിയിലുമാകണമേ.</p>
+                        <p class="mt-2">അന്നന്നു വേണ്ട ആഹാരം ഇന്നു ഞങ്ങൾക്കു തരണമേ. ഞങ്ങളോടു തെറ്റു ചെയ്യുന്നവരോടു ഞങ്ങൾ ക്ഷമിക്കുന്നതുപോലെ ഞങ്ങളുടെ തെറ്റുകൾ ഞങ്ങളോടും ക്ഷമിക്കണമേ. ഞങ്ങളെ പ്രലോഭനത്തിൽ ഉൾപ്പെടുത്തരുതേ. തിന്മയിൽനിന്നു ഞങ്ങളെ രക്ഷിക്കണമേ. ആമേൻ.</p>
+                    </div>
+                </div>
+                <div id="day1-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ, ഞാൻ പാപവഴികൾ ഉപേക്ഷിക്കുന്നതിനും ഈശോയുടെ വിലയേറിയ തിരുരക്തത്താൽ ശുദ്ധീകരിക്കപ്പെടുന്നതിനും പരിശുദ്ധാത്മാവിൻറെ ഫലങ്ങളാൽ നിറയപ്പെടുന്നതിനുമായി അമ്മ പ്രാർത്ഥിക്കണമേ..... പാപത്താൽ കഠിനമാക്കപ്പെട്ട ഹൃദയം എടുത്തുമാറ്റി എസക്കിയേൽ പ്രവാചകൻ വഴി വാഗ്‌ദാനം ചെയ്യപ്പെട്ട പുതിയ ഹൃദയം തരണമേ. "അവർക്കു ഞാൻ ഒരു പുതിയ ഹൃദയം നൽകും; ഒരു പുതിയ ചൈതന്യം അവരിൽ ഞാൻ നിക്ഷേപിക്കും. അവരുടെ ശരീരത്തിൽ നിന്ന് ശിലാഹൃദയം എടുത്തുമാറ്റി ഒരു മാംസളഹൃദയം ഞാൻ കൊടുക്കും. അങ്ങനെ അവർ എന്റെ കൽപ്പനകൾ അനുസരിച്ച് ജീവിക്കുകയും എൻ്റെ നിയമങ്ങൾ ശ്രദ്ധയോടെ പാലിക്കുകയും ചെയ്യും അവർ എൻ്റെ ജനവും ഞാൻ അവരുടെ ദൈവവും ആയിരിക്കും" (എസക്കി 11 : 19,20). പരിശുദ്ധയും സ്നേഹനിധിയുമായ എൻ്റെ അമ്മേ, പരിശുദ്ധാത്മ സ്നേഹത്താൽ നിറഞ്ഞ് മാനസാന്തരത്തിൻ്റെ ഫലങ്ങൾ പുറപ്പെടുവിക്കുന്ന പുതിയ മനുഷ്യനെ ധരിക്കാനായി അമ്മ എനിക്കായി പ്രാർത്ഥിക്കണമേ.</p>
+                    </div>
+                </div>
                 <div id="day1-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
                     <div class="prayer-leader-box">
@@ -419,25 +397,39 @@
                 </div>
             </section>
 
-            <section id="day2" class="content-section">
+            <section id="day2" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">രണ്ടാം ദിവസം</h2>
-                 <div class="intra-day-nav">
+                <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day2-vachanam', 'ദൈവവചനം (രണ്ടാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day2-dhyanam', 'ലഘുവായ ധ്യാനം (രണ്ടാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day2-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (രണ്ടാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day2-samapanam', 'സമാപന പ്രാർത്ഥന (രണ്ടാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-vachanam', '4. ദൈവവചനം (രണ്ടാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-dhyanam', '5. ലഘുവായ ധ്യാനം (രണ്ടാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (രണ്ടാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day2-samapanam', '9. സമാപന പ്രാർത്ഥന (രണ്ടാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                 <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.34 0 .67-.02 1-.05-.32-.38-.59-.81-.79-1.28-.4-.95-.6-2.01-.6-3.13 0-2.03.81-3.85 2.12-5.16C15.15 10.08 17 8.26 17 6c0-2.21-1.79-4-4-4h-1zm0 2h1c1.1 0 2 .9 2 2s-.9 2-2 2h-1V5z"></path></svg> 
+                
+                <div id="day2-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ, അങ്ങയുടെ വിശ്വസ്‌തതയുടെയും സ്നേഹത്തിൻ്റെയും അഗ്നിയാൽ ഞങ്ങളെ ജ്വലിപ്പിക്കണമേ,</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ ഭൂമിയുടെ മുഖം നവീകരിക്കണമേ.</p></div>
+                </div>
+                <div id="day2-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ അവിടുത്തെ ആത്മാവിൻ്റെ വെളിച്ചത്താൽ നയിക്കുമല്ലോ. അങ്ങെ ആത്മാവിനെ ഞങ്ങൾക്കും തരണമേ...</p></div>
+                </div>
+                <div id="day2-prayer2-optional" class="hidden-prayer-content">
+                     <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും സംരക്ഷകനുമായ ദൈവമേ...</p></div>
+                </div>
                 <div id="day2-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം യോഹ. 7:37-39.</h3>
                 </div>
@@ -447,55 +439,27 @@
                 </div>
                 <div id="day2-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ദൈവിക രഹസ്യം ജ്ഞാനികളിൽനിന്നു മറച്ചുവെച്ച് ശിശുക്കൾക്കു വെളിപ്പെടുത്തിയ കർത്താവിനോട് നമുക്ക് പ്രാർത്ഥിക്കാം. അറിയുന്നവ മനസ്സിലാക്കാനുള്ള കൃപ പകരുന്നത് പരിശുദ്ധാത്മാവാണ്. നാം അറിയുന്ന വിശ്വാസസത്യങ്ങളെ മനസ്സിലാക്കുമ്പോഴാണ് അവയെ രുചിച്ചറിയാനാവുന്നത്. വെളിപ്പെട്ടുകിട്ടുന്ന ദൈവിക രഹസ്യങ്ങൾ ഉള്ളിൽ സ്വീകരിച്ച് സ്വന്തമാക്കുമ്പോഴാണ് നമ്മുടെ ജീവിതം പുതുതാക്കപ്പെടുന്നത്.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ദൈവിക രഹസ്യം ജ്ഞാനികളിൽനിന്നു മറച്ചുവെച്ച് ശിശുക്കൾക്കു വെളിപ്പെടുത്തിയ കർത്താവിനോട് നമുക്ക് പ്രാർത്ഥിക്കാം...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p></div>
                     <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>വിശ്വസിക്കുന്നവരുടെ ഹൃദയങ്ങളിൽ നിന്ന് ജീവജലത്തിന്റെ അരുവികൾ ഒഴുകുമെന്ന് അരുളിച്ചെയ്‌തതുപോലെ.</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ദൈവമേ, വചനമായ അങ്ങ് ഞങ്ങളുടെ ഇടയിൽ മാംസം ധരിച്ചതുപോലെ, ഞങ്ങളിലും ഹൃദയത്തിൽ സ്വീകരിക്കുന്ന ദൈവവചനം ജീവിതത്തിൽ മാംസം ധരിക്കുവാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ദൈവമേ, അങ്ങ് ഞങ്ങളിൽ ചൊരിഞ്ഞ എല്ലാ പുണ്യങ്ങളാലും കഴിവുകളാലും മറ്റുള്ളവർക്ക് നന്മ ചെയ്യുവാനും അതുവഴി ദൈവമഹത്വം ഉണ്ടാകുന്നതിനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>പരിശുദ്ധാത്മാവേ, ശാസ്ത്രീയമായും സാങ്കേതികമായും അങ്ങു നൽകുന്ന എല്ലാ അറിവുകളും നന്മയ്ക്കുവേണ്ടി മാത്രം വിനിയോഗിക്കുന്നതിനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p>
-                            </div>
-                        </li>
+                        <li><div class="prayer-leader-box"><p>വിശ്വസിക്കുന്നവരുടെ ഹൃദയങ്ങളിൽ നിന്ന്...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ദൈവമേ, വചനമായ അങ്ങ്...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ദൈവമേ, അങ്ങ് ഞങ്ങളിൽ ചൊരിഞ്ഞ എല്ലാ പുണ്യങ്ങളാലും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p></div></li>
+                        <li><div class="prayer-leader-box"><p>പരിശുദ്ധാത്മാവേ, ശാസ്ത്രീയമായും സാങ്കേതികമായും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ ഞങ്ങളുടെ മനസ്സിനെ പ്രകാശിപ്പിക്കണമേ.</p></div></li>
                     </ol>
+                </div>
+                <div id="day2-our-father" class="hidden-prayer-content">
+                     <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day2-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"> <p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day2-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ ദൈവമേ, പരിശുദ്ധാത്മ ഫലമായ ആനന്ദത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ. എപ്പോഴും സന്തോഷത്തോടെ കഴിയാൻ ഞങ്ങളെ സഹായിക്കണമേ. പ്രതീക്ഷയ്ക്ക് വിപരീതമായ കാര്യങ്ങൾ സംഭവിക്കുമ്പോൾ പുഞ്ചിരിയോടെ നേരിടാനും, ഞങ്ങൾക്കുണ്ടാകുന്ന നഷ്‌ടങ്ങളിലെല്ലാം നന്മയുടെ വശം കണ്ടെത്താനും, അങ്ങേയ്ക്കു നന്ദി പറയാനും ഞങ്ങൾക്കാകട്ടെ. ഞെരുക്കങ്ങളിൽ പിറുപിറുത്തും പരാതിപറഞ്ഞും ഞങ്ങളിലെ പ്രത്യാശ നഷ്ട‌പ്പെടാതെ കാക്കണമേ. എല്ലായ്പ്‌പോഴും എന്റെ ഇഷ്ടമല്ല, അങ്ങയുടെ ഇഷ്‌ടം നിറവേറട്ടെ എന്നു പൂർണ്ണമനസ്സോടെ പറയാൻ ഞങ്ങളെ കഴിവുള്ളവരാക്കണമേ എന്ന് ഞങ്ങളുടെ കർത്താവായ ഈശോമിശിഹാ വഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ ദൈവമേ, പരിശുദ്ധാത്മ ഫലമായ ആനന്ദത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p></div>
                 </div>
                 <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day1')" class="day-nav-button day-nav-button-prev">
@@ -507,25 +471,38 @@
                 </div>
             </section>
 
-            <section id="day3" class="content-section">
+            <section id="day3" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">മൂന്നാം ദിവസം</h2>
                 <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day3-vachanam', 'ദൈവവചനം (മൂന്നാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day3-dhyanam', 'ലഘുവായ ധ്യാനം (മൂന്നാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day3-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (മൂന്നാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day3-samapanam', 'സമാപന പ്രാർത്ഥന (മൂന്നാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-vachanam', '4. ദൈവവചനം (മൂന്നാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-dhyanam', '5. ലഘുവായ ധ്യാനം (മൂന്നാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (മൂന്നാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day3-samapanam', '9. സമാപന പ്രാർത്ഥന (മൂന്നാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                 <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-5.414l-3.293-3.293a1 1 0 10-1.414 1.414L11 15.414V18a1 1 0 102 0v-2.586l3.707-3.707a1 1 0 10-1.414-1.414L13 12.586V10a1 1 0 10-2 0v2.586z"></path></svg> 
+                <div id="day3-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day3-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day3-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day3-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം: 1 കോറി 12:1-11.</h3>
                 </div>
@@ -535,55 +512,27 @@
                 </div>
                 <div id="day3-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> നമുക്കെല്ലാവർക്കും സ്നേഹത്തോടും സന്തോഷത്തോടുംകൂടി കർത്താവേ അങ്ങേ വിവേകത്തിന്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ എന്ന് പ്രാർത്ഥിക്കാം. ജീവിതപ്രതിസന്ധികളിൽ ശരിയും തെറ്റും വിവേചിച്ചറിയാനും, ശരിയായവ തെരഞ്ഞെടുക്കാനും ഈ പരിശുദ്ധാത്മ ദാനം നമ്മെ സഹായിക്കുന്നു. ക്രിസ്‌തീയ വിശ്വാസികൾ എന്ന നിലയിൽ നമ്മൾ ആയിരിക്കുന്ന എല്ലാ ജീവിതസാഹചര്യങ്ങളിലും ദൈവം ആഗ്രഹിക്കുന്നവ വിവേചിച്ചറിഞ്ഞ് ജീവിക്കാൻ നമുക്ക് സാധിക്കുന്നു. രക്ഷയിലേക്കുള്ള ഈ ജീവിത യാത്രയിൽ, അമൂല്യമായ നിധിയാണ് വിവേകം. എല്ലാറ്റിലും ഉപരി ദൈവം നയിക്കുന്ന സത്യത്തിൻ്റെ പാതയിൽ ചരിക്കാൻ ഇതു നമ്മെ യോഗ്യ രാക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിൻ്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> നമുക്കെല്ലാവർക്കും സ്നേഹത്തോടും സന്തോഷത്തോടുംകൂടി...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിൻ്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p></div>
                     <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ദൈവമേ, അങ്ങയുടെ ഛായയിലും സാദൃശ്യത്തിലും സൃഷ്ടിക്കപ്പെട്ട ഞങ്ങൾ അങ്ങ് ദാനമായി നൽകിയ ബുദ്ധിയും കഴിവുകളും അങ്ങയുടെ ഹിതമനുസരിച്ചു മാത്രം വിനിയോഗിക്കാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിൻ്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ദൈവമേ, അങ്ങേ ആത്മാവിൻ്റെ അനുഗ്രഹങ്ങളാലും വരങ്ങളാലും അങ്ങു സഭയെ സമ്പന്നമാക്കുന്നുവല്ലോ. സ്നേഹത്തിൽ വേരൂന്നി വിശുദ്ധിയിൽ സഭയോടു ചേർന്ന് നിൽക്കുവാനും സഭയെ പടുത്തുയർത്തുവാനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിന്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ദൈവമെ അനുദിന ജീവിതത്തിൽ ഞങ്ങളുടെ എല്ലാ കാര്യങ്ങളിലും അങ്ങയുടെ ഇഷ്‌ടം മാത്രം അന്വേഷിക്കുവാനും അതു നിറവേറ്റാനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിൻ്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>ചെന്നായ്ക്കളുടെ ഇടയിൽ കുഞ്ഞാടുകൾ എന്ന പോലെ ഞങ്ങൾ വിശ്വാസത്തിൽ ഉറച്ചു നിന്നുകൊണ്ട് ഈ കാലഘട്ടത്തിലെ വെല്ലുവിളികളെ വിവേകത്തോടെ നേരിടാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിന്റെ ആത്മാവിനാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
+                        <li><div class="prayer-leader-box"><p>ദൈവമേ, അങ്ങയുടെ ഛായയിലും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിൻ്റെ ആത്മാവിനാൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ദൈവമേ, അങ്ങേ ആത്മാവിൻ്റെ അനുഗ്രഹങ്ങളാലും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിന്റെ ആത്മാവിനാൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ദൈവമെ അനുദിന ജീവിതത്തിൽ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിൻ്റെ ആത്മാവിനാൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ചെന്നായ്ക്കളുടെ ഇടയിൽ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, വിവേകത്തിന്റെ ആത്മാവിനാൽ...</p></div></li>
                     </ol>
+                </div>
+                <div id="day3-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day3-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day3-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപനപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ദൈവമേ, പരിശുദ്ധാത്മ ഫലമായ സമാധാനം തരണമേ... അനുദിന ജീവിതത്തിലെ പ്രതിസന്ധികളിൽ ആകുലപ്പെടാതെ അസ്വസ്ഥരാകാതെ എല്ലാം ശാന്തതയോടെ നേരിടാൻ ഞങ്ങളെ സഹായിക്കണമേ. ഞെരുക്കങ്ങളിലും മറ്റുള്ളവർ മൂലം ഉണ്ടാകുന്ന വിഷമങ്ങളിലും സമചിത്തത വെടിയാതെ സമാധാനത്തോടെ വർത്തിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ എന്ന് ഞങ്ങളുടെ കർത്താവായ ഈശോമിശാഹാ വഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമ്മേൻ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ദൈവമേ, പരിശുദ്ധാത്മ ഫലമായ സമാധാനം തരണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമ്മേൻ.</p></div>
                 </div>
                 <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day2')" class="day-nav-button day-nav-button-prev">
@@ -595,25 +544,38 @@
                 </div>
             </section>
             
-            <section id="day4" class="content-section">
+            <section id="day4" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">നാലാം ദിവസം</h2>
-                 <div class="intra-day-nav">
+                <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day4-vachanam', 'ദൈവവചനം (നാലാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day4-dhyanam', 'ലഘുവായ ധ്യാനം (നാലാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day4-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (നാലാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day4-samapanam', 'സമാപന പ്രാർത്ഥന (നാലാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-vachanam', '4. ദൈവവചനം (നാലാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-dhyanam', '5. ലഘുവായ ധ്യാനം (നാലാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (നാലാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day4-samapanam', '9. സമാപന പ്രാർത്ഥന (നാലാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                 <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5.59L13.41 7 12 8.41 10.59 7 12 5.59M12 2L7 7l5 5 5-5-5-5zM7 9l5 5 5-5-5-5-5 5zm5 7l-5-5 1.41-1.41L12 13.17l3.59-3.58L17 11l-5 5z"></path></svg> 
+                <div id="day4-song-hs" class="hidden-prayer-content">
+                     <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day4-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day4-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day4-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം: അപ്പ: 4:23-31</h3>
                 </div>
@@ -623,55 +585,27 @@
                 </div>
                 <div id="day4-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> അനുദിന ജീവിതത്തിൽ എപ്പോഴും നമ്മൊട് ഒപ്പമായിരിക്കുന്ന പരിശുദ്ധാത്മാവിന് നമ്മെത്തന്നെ ഭരമേൽപ്പിക്കാം. പരിശുദ്ധാത്മ ശക്തിയിൽ നാം നയിക്കപ്പെടാനും അവിടുത്തെ ദാനമായ സഹന ശക്തിയാൽ നിറയപ്പെടാനും പ്രാർത്ഥിക്കാം. സഹനശക്തി ആത്മ ധൈര്യം പ്രദാനം ചെയ്യുന്നു. ഇതുമൂലം സകലഭയങ്ങളെയും നാം അതിജീവിക്കുന്നു. ഞെരുക്കുന്ന ദൗർഭാഗ്യങ്ങളിൽ പ്രത്യാശ കൈവിടാതെ നമ്മെ ഭര മേൽപ്പിക്കുന്നവ നിറവേറ്റാൻ സാധിക്കുന്നു. രക്ഷാകരമായ സഹനത്തിന്റെ വേളകളെ സന്തോഷത്തോടെ സ്വീകരിക്കാനും അവസാനം വരെ സഹിച്ചുനിന്ന് രക്ഷ സ്വന്തമാക്കാനും സഹനശക്തി നമ്മെ യോഗ്യരാക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിൻ്റെ ശക്തിയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> അനുദിന ജീവിതത്തിൽ എപ്പോഴും നമ്മൊട് ഒപ്പമായിരിക്കുന്ന...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിൻ്റെ ശക്തിയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p></div>
                     <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ആദിമ സഭയെ ശക്തിയിലും കൃപയുടെ നിറവിലും നയിച്ച പരിശുദ്ധാത്മാവേ, അങ്ങയിലുള്ള വിശ്വാസം ധൈര്യപൂർവ്വം പ്രഘോഷിക്കുന്നതിന്,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിൻ്റെ ശക്തിയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ഈശോയേ, ഈ ലോകത്ത് ഞങ്ങൾ സഹിക്കേണ്ട പീഡനങ്ങളെയും കഷ്‌ടതകളെയും കുറിച്ച് അങ്ങു ഞങ്ങൾക്കു മനസ്സിലാക്കിത്തന്നു. വിശ്വാസത്തിൽ ആഴപ്പെട്ട് ഞങ്ങൾക്കുണ്ടാകുന്ന സഹനങ്ങളെ സ്വീകരിക്കാനുള്ള ശക്തിക്കായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിന്റെ ശക്തിയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ക്രിസ്ത്യാനികൾക്കെതിരേ നടക്കുന്ന എല്ലാ പീഡനങ്ങൾക്കും നടുവിലും എല്ലാവരും പതറാതെ വിശ്വാസത്തിൽ ശക്തിപ്പെട്ടു സഹിച്ചു നിൽക്കുന്നതിനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിൻ്റെ ശക്തിയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>ഈ കാലഘട്ടത്തിൻ്റെ പ്രവാചകരാകാൻ വിളിക്കപ്പെട്ട ഞങ്ങളിൽ ഓരോ വ്യക്തിയും ചുറ്റുമുള്ള തിന്മകൾ തിരിച്ചറിയുന്നതിനും നന്മമാത്രം സ്വീകരിച്ച് സ്വർഗ്ഗം ലക്ഷ്യമാക്കി ജീവിക്കുന്നതിനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിന്റെ ശക്തിയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
+                        <li><div class="prayer-leader-box"><p>ആദിമ സഭയെ ശക്തിയിലും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിൻ്റെ ശക്തിയാൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ഈശോയേ, ഈ ലോകത്ത് ഞങ്ങൾ സഹിക്കേണ്ട...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിന്റെ ശക്തിയാൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ക്രിസ്ത്യാനികൾക്കെതിരേ നടക്കുന്ന...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിൻ്റെ ശക്തിയാൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ഈ കാലഘട്ടത്തിൻ്റെ പ്രവാചകരാകാൻ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആത്മാവിന്റെ ശക്തിയാൽ...</p></div></li>
                     </ol>
+                </div>
+                <div id="day4-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day4-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day4-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, പരിശുദ്ധാത്മഫലമായ ക്ഷമയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ. ഞങ്ങൾ ആയിരിക്കുന്ന എല്ലാ ജീവിതസാഹചര്യങ്ങളിലും ക്ഷമ കൈവിടാതെ, മറ്റുള്ളവരോട് സഹിഷ്ണുതയോടെ വർത്തിക്കാൻ ഞങ്ങളെ സഹായിക്കണമേ. അസ്വസ്ഥരാകുകയും കോപിക്കുകയും എതിർക്കുകയും ചെയ്യാൻ സാദ്ധ്യതയുള്ള എല്ലാ സാഹചര്യങ്ങളിലും അങ്ങു ഞങ്ങൾക്കു കൂട്ടായിരിക്കണമേ. ഞങ്ങളുടെ പ്രതീക്ഷയ്ക്കനുസരിച്ച് കാര്യങ്ങൾ നടക്കാതെ വരുമ്പോഴും വിപരീതമായവ സംഭവിക്കുമ്പോഴും, പ്രത്യാശ നഷ്ട‌പ്പെടാതെ എല്ലാം നന്മയ്ക്കായി പരിണമിപ്പിക്കുന്ന അങ്ങയുടെ പരിപാലനയിലാശ്രയിച്ച് ക്ഷമയോടെ നിലകൊള്ളാൻ ഞങ്ങളെ സഹായിക്കണമെന്ന് ഞങ്ങളുടെ കർത്താവായ ഈശോ മിശിഹാ വഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, പരിശുദ്ധാത്മഫലമായ ക്ഷമയാൽ ഞങ്ങളെ നിറയ്ക്കണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p></div>
                 </div>
                 <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day3')" class="day-nav-button day-nav-button-prev">
@@ -683,25 +617,38 @@
                 </div>
             </section>
 
-            <section id="day5" class="content-section">
+            <section id="day5" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">അഞ്ചാം ദിവസം</h2>
                 <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day5-vachanam', 'ദൈവവചനം (അഞ്ചാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day5-dhyanam', 'ലഘുവായ ധ്യാനം (അഞ്ചാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day5-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (അഞ്ചാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day5-samapanam', 'സമാപന പ്രാർത്ഥന (അഞ്ചാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-vachanam', '4. ദൈവവചനം (അഞ്ചാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-dhyanam', '5. ലഘുവായ ധ്യാനം (അഞ്ചാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (അഞ്ചാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day5-samapanam', '9. സമാപന പ്രാർത്ഥന (അഞ്ചാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                 <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16.93c-3.95-.49-7-3.85-7-7.93 0-1.05.2-2.05.56-2.95L9 10.5v1c0 1.1.9 2 2 2h2v-1.5c0-.83.67-1.5 1.5-1.5H16v3.08c-.33.05-.66.08-1 .08-2.76 0-5-2.24-5-5V9.5L7.05 7.56C8.05 7.2 9 7 10 7c4.42 0 8 3.58 8 8 0 .34-.02.67-.07 1H13v-2c0-1.1-.9-2-2-2h-1v3.93z"></path></svg> 
+                <div id="day5-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day5-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day5-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day5-vachanam">
                     <h3 class="sub-heading-ml">4. വചന ഭാഗം : 1. കോറിന്തോസ് 14:1-5</h3>
                 </div>
@@ -711,63 +658,28 @@
                 </div>
                 <div id="day5-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> നമ്മൾക്കെല്ലാവർക്കും ഭക്തിയോടും വിശ്വാസത്തോടും കൂടെ പരിശുദ്ധാത്മാവിനോട് 'അറിവ്' എന്ന ദാനം തരണമേയെന്ന് പ്രാർത്ഥിക്കാം. ദൈവത്തിന്റെ ശക്തിയെക്കുറിച്ചുള്ള തിരിച്ചറിവുണ്ടാകുമ്പോൾ മനുഷ്യൻ്റെ നിസ്സാരത വെളിപ്പെടുന്നു. ജീവിത പ്രതിസന്ധികളിൽ ദൈവത്തിന് നമ്മോടുള്ള കരുതലും സ്നേഹവും തിരിച്ചറിയുമ്പോഴാണ്, എല്ലായ്പ്‌പോഴും അവിടുത്തെ മഹത്വപ്പെടുത്തിക്കൊണ്ട് ജീവിക്കുവാൻ നമുക്ക് സാധിക്കുന്നത്. അവിടുത്തെ കരങ്ങളിലെ ഉപകരണം മാത്രമാണ് നാമെന്ന് ഈ പരിശുദ്ധാത്മദാനം നമ്മെ ബോദ്ധ്യപ്പെടുത്തുന്നു. എല്ലാത്തിനെക്കാളുമുപരി ദൈവവുമായുള്ള ബന്ധത്തിന് വില കല്പിക്കുന്നവൻ അറിവാകുന്ന അരുവി സ്വന്തമാക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ജ്ഞാനത്തിലും പ്രായത്തിലും ദൈവത്തിൻ്റെയും മനുഷ്യരുടെയും പ്രീതിയിൽ വളർന്ന ഈശോയെപ്പോലെ ഞങ്ങളും വളരാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ലൗകീക സുഖങ്ങളുടെ നിസ്സാരത തിരിച്ചറിഞ്ഞു ജീവിക്കാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ഞങ്ങളുടെ ബുദ്ധിയും മനസ്സും അങ്ങയുടെ ദാനങ്ങളാണെന്ന തിരിച്ചറിവിൽ ജീവിക്കാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>എല്ലായ്പ്പോഴും ദൈവസ്വരം തിരിച്ചറിഞ്ഞ് ആനന്ദകരമായി ജീവിക്കുന്നതിന്,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>ദൈവ വചനത്തിൽ അധിഷ്ഠിതമായ ജീവിത ശൈലിക്ക് ഉടമയാകാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> നമ്മൾക്കെല്ലാവർക്കും ഭക്തിയോടും വിശ്വാസത്തോടും കൂടെ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന പരിശുദ്ധാത്മദാനത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ.</p></div>
+                     <ol class="list-decimal list-inside space-y-2 my-4">
+                        <li><div class="prayer-leader-box"><p>ജ്ഞാനത്തിലും പ്രായത്തിലും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ലൗകീക സുഖങ്ങളുടെ നിസ്സാരത...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ഞങ്ങളുടെ ബുദ്ധിയും മനസ്സും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>എല്ലായ്പ്പോഴും ദൈവസ്വരം...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ദൈവ വചനത്തിൽ അധിഷ്ഠിതമായ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, അറിവെന്ന...</p></div></li>
                     </ol>
+                </div>
+                <div id="day5-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day5-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day5-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, ദയയെന്ന പരിശുദ്ധാത്മഫലത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ. മറ്റുള്ളവർക്കു നന്മ ചെയ്യാൻ കിട്ടുന്ന അവസരങ്ങൾ നഷ്ട‌പ്പെടുത്താതിരിക്കാനും നന്മ ചെയ്യുന്നതിൽ സന്തോഷിക്കാനും ഞങ്ങളെ ശക്തരാക്കണമേ. ഞങ്ങൾക്കുള്ളത് ആവശ്യക്കാരുമായി സന്തോഷത്തോടെ പങ്കുവയ്ക്കാനും ആരെയും പുച്ഛിക്കാതെ മുറിപ്പെടുത്താതെ, എല്ലാവരിലെയും നന്മ കാണാനും വേദനിപ്പിക്കുന്നവരോടു നിരൂപാധികം ക്ഷമിക്കാനും ഞങ്ങളെ ശക്തരാക്കണമേ. എല്ലായ്പ്പോഴും എല്ലാവരോടും ദയയോടെ വർത്തിക്കാൻ ഞങ്ങളെ സഹായിക്കണമെന്ന് ഞങ്ങളുടെ കർത്താവായ ഈശോമിശിഹാവഴി അങ്ങയോട് ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, ദയയെന്ന പരിശുദ്ധാത്മഫലത്താൽ ഞങ്ങളെ നിറയ്ക്കണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ.</p></div>
                 </div>
                  <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day4')" class="day-nav-button day-nav-button-prev">
@@ -779,25 +691,38 @@
                 </div>
             </section>
 
-            <section id="day6" class="content-section">
+            <section id="day6" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">ആറാം ദിവസം</h2>
                  <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day6-vachanam', 'ദൈവവചനം (ആറാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day6-dhyanam', 'ലഘുവായ ധ്യാനം (ആറാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day6-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (ആറാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day6-samapanam', 'സമാപന പ്രാർത്ഥന (ആറാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-vachanam', '4. ദൈവവചനം (ആറാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-dhyanam', '5. ലഘുവായ ധ്യാനം (ആറാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (ആറാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day6-samapanam', '9. സമാപന പ്രാർത്ഥന (ആറാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                 <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 11h-3v3h-2v-3H8v-2h3V8h2v3h3v2z"></path></svg> 
+                <div id="day6-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day6-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day6-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day6-vachanam">
                     <h3 class="sub-heading-ml">4. ദൈവവചനഭാഗം : റോമ. 8:26-30</h3>
                 </div>
@@ -807,55 +732,27 @@
                 </div>
                 <div id="day6-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> നമ്മൾ ആവശ്യപ്പെടുന്നതെല്ലാം സമൃദ്ധിയിൽ നൽകാൻ കഴിയുന്ന പരിശുദ്ധാത്മാവിനോട് നമ്മളിൽ വന്നു നിറയാനായി പ്രാർത്ഥിക്കാം. ഓ... എൻ്റെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ. ദൈവഭക്തി എന്ന ദാനം നമ്മുടെ ഹൃദയങ്ങളിൽ ദൈവപിതാവിനോടുള്ള സ്നേഹം ജനിപ്പിക്കുന്നു. ഈ സ്നേഹത്തെപ്രതി അവിടുത്തേക്കു സമർപ്പിക്കപ്പെട്ട സകലതിനെയും സകലരെയും പരി. അമ്മയെയും, വിശുദ്ധരെയും, വിശ്വാസികളെയും സഭയെയും, സഭാധികാരികളെയും ഭരണാധികാരികളെയും നമ്മൾ സ്നേഹിക്കുകയും ബഹുമാനിക്കുകയും ചെയ്യുന്നു. ദൈവഭക്തിയുള്ള ഒരു വ്യക്തിക്ക് ഭക്താനുഷ്ഠാനങ്ങൾ ഒരിക്കലും ഒരു ഭാരമാകുന്നില്ല. മറിച്ച്, ആനന്ദപൂരിതമായ അനുഭവമാകുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ.. എന്റെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ.</p>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ഞങ്ങൾ ദൈവഭക്തിയിൽ ആനന്ദിക്കാനും സമാധാനത്തിന്റെ മാധുര്യം അനുഭവിക്കാനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻറെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ആത്മാവിലും സത്യത്തിലും ദൈവത്തെ ആരാധിക്കുന്നവരായി എന്നും നിലകൊള്ളാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻ്റെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ജ്ഞാനത്തിൻ്റെ ഉറവിടമായ ദൈവഭക്തി ആഴത്തിൽ നിറയാനും എപ്പോഴും ദൈവഹിതം മാത്രം നിറവേറ്റാനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻ്റെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>ബലഹീനതയിൽ ശക്തി പകരുന്ന പരിശുദ്ധാത്മാവിനെ എപ്പോഴും കൂട്ടുപിടിച്ചു ജീവിക്കാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻ്റെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ.</p>
-                            </div>
-                        </li>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> നമ്മൾ ആവശ്യപ്പെടുന്നതെല്ലാം സമൃദ്ധിയിൽ നൽകാൻ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ.. എന്റെ ജീവനേ, ഭക്തിയുടെ സ്രോതസേ, എന്നിൽ വന്നു നിറയണമേ.</p></div>
+                     <ol class="list-decimal list-inside space-y-2 my-4">
+                        <li><div class="prayer-leader-box"><p>ഞങ്ങൾ ദൈവഭക്തിയിൽ ആനന്ദിക്കാനും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻറെ ജീവനേ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ആത്മാവിലും സത്യത്തിലും ദൈവത്തെ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻ്റെ ജീവനേ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ജ്ഞാനത്തിൻ്റെ ഉറവിടമായ ദൈവഭക്തി...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻ്റെ ജീവനേ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ബലഹീനതയിൽ ശക്തി പകരുന്ന...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ഓ... എൻ്റെ ജീവനേ...</p></div></li>
                     </ol>
+                </div>
+                <div id="day6-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day6-hail-mary-prayer" class="hidden-prayer-content">
+                     <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day6-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. എന്റെ ദൈവമേ, നന്മയെന്ന പുണ്യം ഞങ്ങളിൽ നിറയ്ക്കണമേ ഞങ്ങളുടെ പ്രവൃത്തികൾവഴി ഞങ്ങൾ അനേകർക്കു മാതൃകയാകട്ടെ. ഞങ്ങൾ ആർക്കും ദുഷ്പ്രേരണയ്ക്കു കാരണമാകാതിരിക്കട്ടെ. ഞങ്ങളുടെ വാക്കുകളിലും പ്രവൃത്തികളിലും സത്യസന്ധതയും ആത്മാർത്ഥതയും ഉള്ളവരാകാൻ ഞങ്ങളെ സഹായിക്കണമേ. വിശുദ്ധമായ ചിന്തകളാൽ ഞങ്ങളെ നയിക്കണമേ. ഞങ്ങൾ ആയിരിക്കുന്ന അവസ്ഥയിൽ നിന്ന് ആയിരിക്കേണ്ട അവസ്ഥയെക്കുറിച്ചുള്ള തിരിച്ചറിവ് ഞങ്ങളിൽ എപ്പോഴും നൽകണമെന്ന് ഞങ്ങളുടെ കർത്താവായ ഈശോമിശിഹാ വഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. എന്റെ ദൈവമേ, നന്മയെന്ന പുണ്യം ഞങ്ങളിൽ നിറയ്ക്കണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p></div>
                 </div>
                 <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day5')" class="day-nav-button day-nav-button-prev">
@@ -867,25 +764,38 @@
                 </div>
             </section>
 
-            <section id="day7" class="content-section">
+            <section id="day7" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">ഏഴാം ദിവസം</h2>
                 <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day7-vachanam', 'ദൈവവചനം (ഏഴാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day7-dhyanam', 'ലഘുവായ ധ്യാനം (ഏഴാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day7-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (ഏഴാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day7-samapanam', 'സമാപന പ്രാർത്ഥന (ഏഴാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-vachanam', '4. ദൈവവചനം (ഏഴാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-dhyanam', '5. ലഘുവായ ധ്യാനം (ഏഴാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (ഏഴാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day7-samapanam', '9. സമാപന പ്രാർത്ഥന (ഏഴാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                  <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg> 
+                <div id="day7-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day7-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day7-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day7-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം : ഗലാത്തിയ 5 : 22-26</h3>
                 </div>
@@ -895,55 +805,27 @@
                 </div>
                 <div id="day7-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> നമ്മുടെ പൂർവ്വപിതാക്കന്മാരോടു ചെയ് വാഗ്ദാനം നിറവേറ്റിയ ദൈവത്തോടുള്ള വിശ്വസ്തതയിൽ അന്ധകാരത്തിന്റെ പ്രവൃത്തികൾ പരിത്യജിച്ച് ദൈവഭയത്തിൽ ജീവിക്കുന്നതിനും അതുവഴി പ്രകാശത്തിൻ്റെ ഫലങ്ങൾ പുറപ്പെടുവിക്കുന്നവരാകുന്നതിനുമായി നമുക്കു പ്രാർത്ഥിക്കാം. പാപത്തെ വെറുത്തുപേക്ഷിക്കാനും പാപം ചെയ്‌തു ദൈവത്തെ വേദനിപ്പിക്കാതിരിക്കാനും ദൈവഭയം നമ്മെ സഹായിക്കുന്നു. നരകത്തെക്കുറിച്ച് ഭയപ്പെടാനല്ല മറിച്ച്, നമുക്ക് ദൈവപിതാവിനോടുള്ള സ്നേഹവും ആദരവും വിധേയത്വവും പ്രകടമാക്കാൻ ഈ പരിശുദ്ധാത്മദാനം നമ്മെ ശക്തരാക്കുന്നു. ദൈവഭയം ജ്ഞാനത്തിൻ്റെ ആരംഭമാകുന്നു. ലോകമോഹങ്ങൾ ഒരിക്കലും നമ്മെ കീഴ്പ്പെടുത്താതെ നാം ദൈവപിതാവിൻറെ സ്നേഹവലയത്തിലാകുന്നു. ദൈവദൃഷ്ടിയിൽ സ്വീകാര്യമായവരുടെ ആത്മാക്കളെ അവിടുന്ന് അനുദിനം ശുദ്ധീകരിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ ജീവിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> നമ്മുടെ പൂർവ്വപിതാക്കന്മാരോടു ചെയ് വാഗ്ദാനം...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ ജീവിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</p></div>
                     <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>തിരുരക്തത്താൽ ഞങ്ങളെ വീണ്ടെടുത്ത, പരിശുദ്ധ അമ്മയുടെ പ്രിയപുത്രനായ മിശിഹായേ, ഞങ്ങളുടെ പാപബന്ധനങ്ങളിൽനിന്ന് ഞങ്ങൾ മോചിതരാകാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ ജീവിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>അങ്ങയുടെ ഉയിർപ്പിന്റെ ശക്തി തിരിച്ചറിഞ്ഞ് അവിടുത്തെ ജീവിതവും മരണവു മഹത്വപ്പെടുത്തി വിശ്വസ്‌തതയോടെ ജീവിക്കാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ ജീവിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>രക്ഷയുടെ സദ്വാർത്ത ലോകമെങ്ങും അറിയിക്കാനായി ശ്ലീഹൻമാരെ തെരഞ്ഞെടുക്കുകയും എപ്പോഴും കൂടെയുണ്ടാകുമെന്ന് വാഗ്‌ദാനം നൽകുകയും ചെയ്‌ത കർത്താവേ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ ജീവിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>അങ്ങു സ്ഥാപിച്ച സഭയെ ആത്മാർഥമായി സ്നേഹിക്കാനും അതിന്റെ മൂല്യം തിരിച്ചറിഞ്ഞ് രക്ഷയുടെ ദൗത്യം തുടരാനുമായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ ജീവിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</p>
-                            </div>
-                        </li>
+                        <li><div class="prayer-leader-box"><p>തിരുരക്തത്താൽ ഞങ്ങളെ വീണ്ടെടുത്ത...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>അങ്ങയുടെ ഉയിർപ്പിന്റെ ശക്തി...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>രക്ഷയുടെ സദ്വാർത്ത ലോകമെങ്ങും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>അങ്ങു സ്ഥാപിച്ച സഭയെ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അനുദിനം ദൈവഭയത്തിൽ...</p></div></li>
                     </ol>
+                </div>
+                <div id="day7-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day7-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day7-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, അങ്ങയോടും മറ്റുള്ളവരോടും ഞങ്ങളോടു തന്നെയും വിശ്വസ്തരായിരിക്കാൻ ഞങ്ങളെ സഹായിക്കണമേ. എല്ലായ്പ്പോഴും സത്യം മാത്രം പറയാനും, താഴ്‌മയോടെ വർത്തിക്കാനും മറ്റുള്ളവരെ വിധിക്കാതെ ഞങ്ങളെക്കാൾ ശ്രേഷ്ഠരായി അവരെ കരുതാനും ഞങ്ങളെ ശക്തരാക്കണമെ. ഞങ്ങളുടെ ബലഹീനതയിൽ അങ്ങു ഞങ്ങൾക്കു ബലം പകരണമേ. ഞങ്ങളെ സ്നേഹിക്കുന്നവരും ഞങ്ങൾ സ്നേഹിക്കുന്നവരുമായ ആരെയും വേദനിപ്പിക്കാതെ അവർക്കായി ചെയ്യുന്ന കാര്യങ്ങളിൽ ആത്മാർത്ഥതയുള്ളവരായിരിക്കാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമേ എന്ന് ഞങ്ങളുടെ കർത്താവ് ഈശോമിശിഹാവഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ.</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, അങ്ങയോടും മറ്റുള്ളവരോടും ഞങ്ങളോടു തന്നെയും...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ.</p></div>
                 </div>
                 <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day6')" class="day-nav-button day-nav-button-prev">
@@ -955,25 +837,38 @@
                 </div>
             </section>
 
-            <section id="day8" class="content-section">
+            <section id="day8" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">എട്ടാം ദിവസം</h2>
                 <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day8-vachanam', 'ദൈവവചനം (എട്ടാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day8-dhyanam', 'ലഘുവായ ധ്യാനം (എട്ടാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day8-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (എട്ടാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day8-samapanam', 'സമാപന പ്രാർത്ഥന (എട്ടാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-vachanam', '4. ദൈവവചനം (എട്ടാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-dhyanam', '5. ലഘുവായ ധ്യാനം (എട്ടാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (എട്ടാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day8-samapanam', '9. സമാപന പ്രാർത്ഥന (എട്ടാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                  <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg> 
+                <div id="day8-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day8-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day8-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day8-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം : അപ്പ. പ്രവ. 2-37 - 47</h3>
                 </div>
@@ -983,63 +878,28 @@
                 </div>
                 <div id="day8-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> രക്ഷയുടെ മാർഗ്ഗം വെളിപ്പെടുത്താനായി പരിശുദ്ധാത്മാവിനെ ഭൂമിയിലേക്ക് അയച്ച ദൈവത്തോടു പരിശുദ്ധാത്മാവിൻ്റെ ഫലങ്ങളാലും ദാനങ്ങളാലും നമ്മെ നിറയ്ക്കണമെന്ന് പ്രാർത്ഥിക്കാം.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ആദിമ ക്രൈസ്‌തവ സമൂഹത്തെപ്പോലെ ഞങ്ങൾക്കുള്ളവ പങ്കുവയ്ക്കുന്നതിലൂടെ ദൈവരാജ്യം ഇവിടെ സ്ഥാപിതമാകുവാനായി,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ഈശോയേ, അവിടുത്തെ അമ്മയെ ഞങ്ങൾക്കും അമ്മയായി നൽകിയല്ലോ. അങ്ങ് ആഗ്രഹിക്കുന്നതുപോലെ ഈ അമ്മയിലൂടെ ഞങ്ങൾ അങ്ങയിലെത്തിച്ചേരാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>അങ്ങു സ്ഥാപിച്ച കൂദാശകളെ ഏറ്റവും യോഗ്യതയോടെ സ്വീകരിച്ച്, പരിശുദ്ധാത്മാവിനാൽ നിറഞ്ഞ് ഞങ്ങളെത്തന്നെ കൂടുതൽ വിശുദ്ധീകരിക്കാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>എളിമ, അനുസരണം എന്നീ പുണ്യങ്ങളാൽ പരിശുദ്ധ അമ്മയെ അനുകരിച്ച് മറ്റുള്ളവരെ അങ്ങയിലേക്കടുപ്പിക്കാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>പരിശുദ്ധ ത്രിത്വത്തിന്റെ ഐക്യത്തോടു സാദൃശ്യമുള്ള ആദിമ ക്രൈസ്തവ സമൂഹത്തെപ്പോലെ ഞങ്ങളും കൂട്ടായ്മയുടെ ഐക്യത്തിൽ ശക്തിപ്പെടാൻ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p>
-                            </div>
-                        </li>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> രക്ഷയുടെ മാർഗ്ഗം വെളിപ്പെടുത്താനായി...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളാലും, ഫലങ്ങളാലും ഞങ്ങളെ നിറയ്ക്കണമേ.</p></div>
+                     <ol class="list-decimal list-inside space-y-2 my-4">
+                        <li><div class="prayer-leader-box"><p>ആദിമ ക്രൈസ്‌തവ സമൂഹത്തെപ്പോലെ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ഈശോയേ, അവിടുത്തെ അമ്മയെ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>അങ്ങു സ്ഥാപിച്ച കൂദാശകളെ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>എളിമ, അനുസരണം എന്നീ പുണ്യങ്ങളാൽ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ...</p></div></li>
+                        <li><div class="prayer-leader-box"><p>പരിശുദ്ധ ത്രിത്വത്തിന്റെ ഐക്യത്തോടു...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> കർത്താവേ, പരിശുദ്ധാത്മാവിൻ്റെ...</p></div></li>
                     </ol>
+                </div>
+                <div id="day8-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day8-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day8-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, ഞങ്ങൾക്ക് സൗമ്യതയെന്ന ഫലം നൽകണമേ. പരുഷമായ വാക്കുകളാലും പ്രവൃത്തികളാലും മറ്റുള്ളവരെ വേദനിപ്പിക്കാനും മുറിപ്പെടുത്താനും ഞങ്ങൾക്ക് ഇടയാക്കാതിരിക്കാൻ ഞങ്ങളെ സഹായിക്കണമേ. മറ്റുള്ളവരെ വേദനിപ്പിക്കുന്നതിൽ സന്തോഷം കണ്ടെത്തുന്നവരായി ഞങ്ങൾ ഒരിക്കലും മാറാതിരിക്കട്ടെ. മറ്റുള്ളവർ ഞങ്ങളോട് എങ്ങനെ പെരുമാറണമെന്ന് ഞങ്ങൾ ആഗ്രഹിക്കുന്നുവോ അതുപോലെ അവരോടു പെരുമാറാനും ഞങ്ങളെ ശക്തരാക്കണമേ. രോഗികളോടും ദു:ഖിതരോടും പ്രായമായവരോടും അവശരോടും കരുണയും കരുതലും ഉള്ളവരായിരിക്കാൻ ഞങ്ങളെ സഹായിക്കണമെന്ന് ഞങ്ങളുടെ കർത്താവായ ഈശോമിശിഹാ വഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, ഞങ്ങൾക്ക് സൗമ്യതയെന്ന ഫലം നൽകണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p></div>
                 </div>
                  <div class="mt-8 flex justify-between">
                     <button onclick="navigateToDay('day7')" class="day-nav-button day-nav-button-prev">
@@ -1051,25 +911,38 @@
                 </div>
             </section>
 
-            <section id="day9" class="content-section">
+            <section id="day9" class="content-section prayer-content-holder">
                 <h2 class="section-title-ml">ഒമ്പതാം ദിവസം</h2>
                 <div class="intra-day-nav">
                     <h4>ഈ ദിവസത്തെ പ്രാർത്ഥനകൾ:</h4>
                     <ul>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-song-hs', 'പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം', 'common-prayers')">1. ഗാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-introductory-prayer', 'ആമുഖപ്രാർത്ഥന', 'common-prayers')">2. ആമുഖപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-prayer2-optional', 'പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)', 'common-prayers')">3. പ്രാർത്ഥന 2</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day9-vachanam', 'ദൈവവചനം (ഒമ്പതാം ദിവസം)')">4. ദൈവവചനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day9-dhyanam', 'ലഘുവായ ധ്യാനം (ഒമ്പതാം ദിവസം)')">5. ധ്യാനം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day9-madhyastha', 'മദ്ധ്യസ്ഥപ്രാർത്ഥന (ഒമ്പതാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-our-father', 'സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ', 'common-prayers')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'common-hail-mary-prayer', 'ഓ, പരിശുദ്ധ മാതാവേ', 'common-prayers')">8. പരിശുദ്ധ മാതാവേ</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'day9-samapanam', 'സമാപന പ്രാർത്ഥന (ഒമ്പതാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', 'പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
-                        <li><a href="#" onclick="openPrayerModal(event, 'litany', 'പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-song-hs', '1. പരിശുദ്ധാത്മാവിനോടുള്ള ഗാനം')">1. ഗാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-introductory-prayer', '2. ആമുഖപ്രാർത്ഥന')">2. ആമുഖപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-prayer2-optional', '3. പ്രാർത്ഥന 2 (നിർബ്ബന്ധമില്ല)')">3. പ്രാർത്ഥന 2</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-vachanam', '4. ദൈവവചനം (ഒമ്പതാം ദിവസം)')">4. ദൈവവചനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-dhyanam', '5. ലഘുവായ ധ്യാനം (ഒമ്പതാം ദിവസം)')">5. ധ്യാനം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-madhyastha', '6. മദ്ധ്യസ്ഥപ്രാർത്ഥന (ഒമ്പതാം ദിവസം)')">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-our-father', '7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ')">7. സ്വർഗ്ഗ. പിതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-hail-mary-prayer', '8. ഓ, പരിശുദ്ധ മാതാവേ')">8. പരിശുദ്ധ മാതാവേ</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'day9-samapanam', '9. സമാപന പ്രാർത്ഥന (ഒമ്പതാം ദിവസം)')">9. സമാപന പ്രാർത്ഥന</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'pentecost-consecration', '10. പരിശുദ്ധാത്മാവിന് സമർപ്പണം', 'pentecost')">10. സമർപ്പണം</a></li>
+                        <li><a href="#" onclick="openPrayerModal(event, 'litany', '11. പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ', 'litany')">11. ലുത്തിനിയ</a></li>
                     </ul>
                 </div>
                 <svg class="symbol-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm0 2.5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0V5.5a.75.75 0 01.75-.75zm0 14a.75.75 0 01-.75-.75v-3.5a.75.75 0 011.5 0v3.5a.75.75 0 01-.75.75zm5.25-7.5h-3.5a.75.75 0 000 1.5h3.5a.75.75 0 000-1.5zm-10.5 0h3.5a.75.75 0 000-1.5h-3.5a.75.75 0 000 1.5zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"></path></svg> 
+                <div id="day9-song-hs" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">1. പരിശുദ്ധാത്മാവേ വരേണമേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പരിശുദ്ധാത്മാവേ വരേണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> അങ്ങയുടെ സാന്നിധ്യത്താൽ...</p></div>
+                </div>
+                <div id="day9-introductory-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">2. ആമുഖ പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> പിതാവേ, അങ്ങയുടെ വിശ്വസ്‌തരുടെ ഹൃദയങ്ങളെ...</p></div>
+                </div>
+                <div id="day9-prayer2-optional" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">3. പ്രാർത്ഥന (നിർബ്ബന്ധമില്ല)</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡറും സമൂഹവും:</span> ഞങ്ങളുടെ സ്രഷ്‌ടാവും പിതാവും...</p></div>
+                </div>
                 <div id="day9-vachanam">
                     <h3 class="sub-heading-ml">4. വചനഭാഗം : അപ്പ. 2:1-13</h3>
                 </div>
@@ -1079,63 +952,28 @@
                 </div>
                 <div id="day9-madhyastha">
                     <h3 class="sub-heading-ml">6. മദ്ധ്യസ്ഥപ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> തന്റെ ദാനങ്ങളാലും ഫലങ്ങളാലും നമ്മെ നിറച്ച പരിശുദ്ധാത്മാവിന് ഉത്സാഹത്തോടും സന്തോഷത്തോടും കൂടി നമുക്കു നന്ദി പറയാം.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു</p>
-                    </div>
-                    <ol class="list-decimal list-inside space-y-2 my-4">
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>പ്രാർത്ഥനയിലായിരുന്ന പരിശുദ്ധ അമ്മയുടെയും ശ്ലീഹന്മാരുടെയും മേൽ തീനാള രൂപത്തിൽ ഇറങ്ങിവന്ന് അവരെ ശക്തിപ്പെടുത്തിയ,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ഭൂമിയുടെ അതിർത്തികൾവരെ, രക്ഷയുടെ സദ്വാർത്ത അറിയിക്കാനായി ശ്ലീഹന്മാരെ തെരഞ്ഞെടുക്കുകയും തന്റെ ദാനങ്ങളാലും വരങ്ങളാലും അവരെ നിറയ്ക്കുകയും ചെയ്ത,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prayer-leader-box">
-                                <p>ഭാരതസുവിശേഷവത്കരണത്തിനായി അനേകരുടെ സമയവും കഴിവുകളും വിനിയോഗിക്കാൻ പ്രചോദിപ്പിച്ച,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേക്കു നന്ദി പറയുന്നു</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>സഭയെ നയിക്കാനായി എല്ലായ്പ്‌പ്പോഴും പരിശുദ്ധപിതാവിനെയും മെത്രാന്മാരെയും ശക്തിപ്പെടുത്തുന്ന,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേക്കു നന്ദി പറയുന്നു</p>
-                            </div>
-                        </li>
-                         <li>
-                            <div class="prayer-leader-box">
-                                <p>നിത്യവും ഞങ്ങളിൽ വസിച്ച് ഞങ്ങളെ വിശുദ്ധീകരിക്കുന്ന,</p>
-                            </div>
-                            <div class="prayer-congregation-box">
-                                <p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേക്കു നന്ദി പറയുന്നു</p>
-                            </div>
-                        </li>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> തന്റെ ദാനങ്ങളാലും ഫലങ്ങളാലും നമ്മെ നിറച്ച...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു</p></div>
+                     <ol class="list-decimal list-inside space-y-2 my-4">
+                        <li><div class="prayer-leader-box"><p>പ്രാർത്ഥനയിലായിരുന്ന പരിശുദ്ധ അമ്മയുടെയും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ഭൂമിയുടെ അതിർത്തികൾവരെ...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേയ്ക്കു നന്ദി പറയുന്നു</p></div></li>
+                        <li><div class="prayer-leader-box"><p>ഭാരതസുവിശേഷവത്കരണത്തിനായി...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേക്കു നന്ദി പറയുന്നു</p></div></li>
+                        <li><div class="prayer-leader-box"><p>സഭയെ നയിക്കാനായി എല്ലായ്പ്‌പ്പോഴും...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേക്കു നന്ദി പറയുന്നു</p></div></li>
+                        <li><div class="prayer-leader-box"><p>നിത്യവും ഞങ്ങളിൽ വസിച്ച്...</p></div><div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങേക്കു നന്ദി പറയുന്നു</p></div></li>
                     </ol>
+                </div>
+                <div id="day9-our-father" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">7. സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">എല്ലാവരും:</span> സ്വർഗ്ഗസ്ഥനായ ഞങ്ങളുടെ പിതാവേ...</p></div>
+                </div>
+                <div id="day9-hail-mary-prayer" class="hidden-prayer-content">
+                    <h3 class="sub-heading-ml">8. പരിശുദ്ധ അമ്മയോടുള്ള പ്രാർത്ഥന</h3>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ : സമൂഹവുമായി ചേർന്ന്:</span> ഓ... പരിശുദ്ധ മാതവേ, എന്റെ അമ്മേ...</p></div>
                 </div>
                 <div id="day9-samapanam">
                     <h3 class="sub-heading-ml">9. സമാപന പ്രാർത്ഥന</h3>
-                    <div class="prayer-leader-box">
-                        <p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, ഞങ്ങൾക്ക് ആത്മസംയമനം നൽകണമേ. ഞങ്ങളുടെ വികാരങ്ങളെയും നാവിനെയും നിയന്ത്രിക്കാൻ സഹായിക്കണമേ. മറ്റുള്ളവരെ വേദനിപ്പിക്കുന്ന വിധത്തിൽ ഞങ്ങൾ സംസാരിക്കുകയോ പെരുമാറുകയോ ചെയ്യാതിരിക്കട്ടെ. വെറുപ്പിന്റെയും വിദ്വേഷത്തിൻ്റെയും അസൂയയുടെയും ദുരാത്മാക്കളിൽ നിന്ന്‌ഞങ്ങളുടെ ഹൃദയങ്ങളെ വിമുക്തമാക്കണമേ. ഞങ്ങളുടെ വികാരങ്ങളും പ്രവർത്തികളും സ്നേഹത്തിൽ വേരൂന്നിയതാകാൻ ഞങ്ങളെ അനുഗ്രഹിക്കണമെയെന്നു ഞങ്ങളുടെ കർത്താവായ ഈശോമിശിഹാ വഴി അങ്ങയോടു ഞങ്ങൾ പ്രാർത്ഥിക്കുന്നു.</p>
-                    </div>
-                    <div class="prayer-congregation-box">
-                        <p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p>
-                    </div>
+                    <div class="prayer-leader-box"><p><span class="prayer-leader-text">ലീഡർ:</span> ഓ.. ദൈവമേ, ഞങ്ങൾക്ക് ആത്മസംയമനം നൽകണമേ...</p></div>
+                    <div class="prayer-congregation-box"><p><span class="prayer-congregation-text">സമൂഹം:</span> ആമേൻ</p></div>
                 </div>
                 <div class="mt-8 flex justify-start">
                     <button onclick="navigateToDay('day8')" class="day-nav-button day-nav-button-prev">
@@ -1152,17 +990,14 @@
                     <p class="mb-2"><span class="prayer-leader-text">സ്തുതി :</span> ജോയൽ 2:28-32</p>
                     <p class="mb-2"><span class="prayer-leader-text">ദൈവവചനം :</span> അപ്പ. 2:1-47</p>
                 </div>
-
                 <div class="prayer-leader-box mt-4">
                     <h3 class="sub-heading-ml">പ്രാർത്ഥന</h3>
                     <p class="mb-4">ദൈവമേ, ഞങ്ങൾ അങ്ങയെ സ്‌തുതിക്കുന്നു. യേശുവേ, ഞങ്ങൾ അങ്ങയെ ആരാധിക്കുന്നു. പരിശുദ്ധാത്മാവേ, ഞങ്ങൾ അങ്ങയെ മഹത്വപ്പെടുത്തുന്നു. പരിശുദ്ധാത്മാവേ, ഞങ്ങളിൽ വന്നു നിറയണമേ ഒരു പുതിയ പന്തക്കുസ്‌താ അനുഭവം ഞങ്ങൾക്കു നൽകണമേ പരിശുദ്ധാത്മാവേ, ഞങ്ങളെ വിശുദ്ധീകരിക്കണമേ പരിശുദ്ധാത്മാവേ, ഞങ്ങളെ നയിക്കണമേ ലോകത്തിനു സാക്ഷ്യം നൽകുവാൻ ഞങ്ങളെ പഠിപ്പിക്കണമേ. സ്നേഹംനിറഞ്ഞ അമ്മേ, ഞങ്ങളുടെ പ്രാർത്ഥനകൾ സ്നേഹംനിറഞ്ഞ പിതാവിന്റെ സന്നിധിയിൽ സമർപ്പിക്കണമേ. അങ്ങനെ ഞങ്ങൾക്ക് പരിശുദ്ധാത്മാവിൻ്റെ ദാനങ്ങളും അനുഗ്രഹങ്ങളും ലഭിക്കുമാറാകട്ടെ. അങ്ങയുടെ മദ്ധ്യസ്ഥതയാലും സഹായത്താലും, പിതാവായ ദൈവം ഞങ്ങളെ പുണ്യങ്ങൾകൊണ്ടും ദാനങ്ങൾകൊണ്ടും പരിശുദ്ധാത്മാവിൻ്റെ ഫലങ്ങൾകൊണ്ടും അനുഗ്രഹിക്കുമാറാകട്ടെ. ആമ്മേൻ.</p>
                 </div>
-
                 <div class="prayer-leader-box mt-4">
                     <h3 class="sub-heading-ml">ദൈവത്തിന്റെ വാഗ്ദാനവും, ഏഴ് ദാനങ്ങളുടെ നിത്യാരാധനയും</h3>
                     <p class="mb-4">പരിശുദ്ധാത്മാവേ! എഴുന്നള്ളിവരിക. അങ്ങേ വെളിവിൻ കതിർ ആകാശത്തിൽനിന്നു അയച്ചുകൊൾക. അഗതികളുടെ പിതാവേ! ദാനങ്ങൾ കൊടുക്കുന്നവനേ! ഹൃദയത്തിൻ്റെ പ്രകാശമേ! എഴുന്നള്ളിവരിക. എത്രയും നല്ല ആശ്വസിപ്പിക്കുന്നവനേ! ആത്മാവിനു മധുരമായ വിരുന്നേ! മധുരമായ തണുപ്പേ! അലച്ചിലിൽ സുഖമേ! ഉഷ്ണത്തിൽ തണുപ്പേ! കരച്ചിലിൽ സ്വൈര്യമേ! ആനന്ദത്തോടുകൂടിയിരിക്കുന്ന എഴുന്നള്ളിവരിക. എത്രയും പ്രകാശമേ! അങ്ങേ വിശ്വാസികളുടെ ഹൃദയത്തിന്റെ ഉള്ളുകളെ നിറയ്ക്കുക. അങ്ങേ വെളിവുകൂടാതെ മനുഷ്യരിൽ പാപമല്ലാതെ ഒന്നുമില്ല. അറപ്പു ള്ളതു കഴുകുക. വാടിപ്പോയതു നനയ്ക്കുക. മുറിവേറ്റിരിക്കുന്നത് സുഖപ്പെടുത്തുക. രോഗപ്പെട്ടത് സുഖപ്പെടുത്തുക. കടുപ്പമുള്ളതു മയപ്പെടുത്തുക. തണുപ്പുള്ളത് ചൂടുപിടിപ്പിക്കുക. പെരുവഴിയല്ലാതെ പോയതു തിരിക്കുക. അങ്ങിൽ ശരണപ്പെട്ടിരിക്കുന്ന വിശ്വാസികൾക്ക് അങ്ങേ ഏഴു വിശുദ്ധ ദാനങ്ങൾ നൽകുക. ഭാഗ്യമരണവും പുണ്യയോഗ്യതയും, നിത്യാനന്ദവും ഞങ്ങൾക്കു തരിക. ആമ്മേനീശോ.</p>
                 </div>
-                
                 <div id="pentecost-consecration" class="prayer-leader-box mt-4">
                     <h3 class="sub-heading-ml">പരിശുദ്ധാത്മാവിനു പ്രതിഷ്‌ഠിക്കുന്ന പ്രാർത്ഥന</h3>
                     <p class="mb-4">ദൈവത്തിന്റെ നിത്യനായ പരിശുദ്ധാത്മാവേ, സ്വർഗ്ഗീയ സാക്ഷികളുടെ മഹാ സമൂഹത്തിനു മുമ്പിൽ, മുട്ടിൻമേൽ നിന്നുകൊണ്ട് എന്നെത്തന്നെ, എൻ്റെ ആത്മാവിനെയും ശരീരത്തെയും ഞാൻ അങ്ങേക്ക് സമർപ്പിക്കുന്നു. അങ്ങയുടെ പരിശുദ്ധിയുടെ വെണ്മയെയും അങ്ങയുടെ തെറ്റുവരാത്ത സൂക്ഷ് മായ നീതിയെയും അങ്ങയുടെ സ്നേഹത്തിന്റെ ശക്തിയെയും ഞാൻ ആരാധിക്കുന്നു. അങ്ങുന്ന് എൻ്റെ ആത്മാവിന്റെ ശക്തിയും പ്രകാശവുമാകുന്നു. ഞാൻ അങ്ങയിൽ ജീവിക്കുകയും ചലിക്കുകയും ആയിരിക്കുകയും ചെയ്യുന്നു. അങ്ങയുടെ കൃപാവരത്തോട് അവിശ്വസ്‌തത കാണിച്ച് അങ്ങയെ ഒരിക്കലും ദു:ഖിപ്പിക്കരുതെന്നു ഞാൻ ആഗ്രഹിക്കുന്നു. അങ്ങേക്കെതിരായി ഏറ്റവും ചെറിയ പാപം പോലും ചെയ്‌ത്‌ അങ്ങയെ ഉപദ്രവിക്കാൻ എനിക്ക് ഇടയാക്കല്ലേ എന്നു ഞാൻ പ്രാർത്ഥിക്കുന്നു. എൻ്റെ ഓരോ ചിന്തയെയും അവിടുന്നു കാരുണ്യപൂർവ്വം കാത്തുസൂക്ഷിക്കണമേ, എപ്പോഴും അങ്ങയുടെ പ്രകാശത്തിലേക്കു നോക്കാനും അങ്ങയുടെ സ്വരം കേൾക്കാനും അങ്ങയുടെ കരുണാമയമായ പ്രചോദനങ്ങളെ പിന്തുടരാനും എനിക്ക് അനുഗ്രഹം നൽകണമേ. ഞാൻ അങ്ങയിൽ പൂർണ്ണമായി ആശ്രയിക്കുന്നു. എന്നെത്തന്നെ അങ്ങേക്ക് സമർപ്പിക്കുന്നു. എൻ്റെ ബലഹീനതയിൽ എന്നെ സംരക്ഷിക്കണമെന്നു ഞാൻ യാചിക്കുന്നു. യേശുവിന്റെ മുറിവേറ്റ പാദങ്ങളിൽ പിടിച്ചുകൊണ്ടും അവിടുത്തെ അഞ്ചു തിരുമുറിവുകളിൽ നോക്കികൊണ്ടും അവിടുത്തെ അമൂല്യരക്തത്തിൽ ആശ്രയിച്ചുകൊണ്ടും അവിടുത്തെ വിലാപ്പുറത്തെയും കുത്തിമുറിവേല്പിക്കപ്പെട്ട ഹൃദയത്തെയും ആരാധിച്ചുകൊണ്ടും ഞാൻ അങ്ങയോട് അപേക്ഷിക്കുന്നു. ആരാധ്യനായ പരിശുദ്ധാരൂപിയും ദൗർബല്യത്തിൽ എന്റെ സഹായിയുമായ അങ്ങയോടു ഞാൻ യാചിക്കുന്നു. ഞാൻ ഒരിക്കലും അങ്ങേക്കെതിരേ പാപം ചെയ്യാതിരിക്കാൻ അങ്ങയുടെ കൃപാവരത്താൽ സഹായിക്കണമേ. പരിശുദ്ധാത്മാവേ, പിതാവിന്റെയും പുത്രന്റെയും ചൈതന്യമേ, എനിക്ക് അനുഗ്രഹം നൽകണമേ. അങ്ങനെ എപ്പോഴും എല്ലായിടത്തും “കർത്താവേ, സംസാരിച്ചാലും അങ്ങയുടെ ദാസൻ കേൾക്കുന്നുണ്ട്." എന്ന് ഞാൻ പറയാൻ ഇടയാകട്ടെ. ആമേൻ.</p>
@@ -1178,14 +1013,12 @@
                     <p><span class="prayer-leader-text">ക്രിസ്തുവേ, ഞങ്ങളുടെ പ്രാർത്ഥന കേൾക്കണമേ</span></p>
                     <p class="mb-4"><span class="prayer-leader-text">ക്രിസ്തുവേ, ഞങ്ങളുടെ പ്രാർത്ഥന കൈക്കൊള്ളണമേ.</span></p>
                 </div>
-
                 <div class="prayer-leader-box mt-2">
                     <p>സ്വർഗ്ഗസ്ഥനായ പിതാവായ ദൈവമേ / <span class="prayer-congregation-text">ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</span></p>
                     <p>ദൈവത്തിന്റെ പുത്രാ, ലോകവിമോചകാ / <span class="prayer-congregation-text">ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</span></p>
                     <p>പരിശുദ്ധാത്മാവായ ദൈവമേ / <span class="prayer-congregation-text">ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</span></p>
                     <p class="mb-4">പരിശുദ്ധ ത്രിത്വമേ, ഏക ദൈവമേ / <span class="prayer-congregation-text">ഞങ്ങളെ അനുഗ്രഹിക്കണമേ.</span></p>
                 </div>
-                
                 <div class="mt-2">
                     <div class="prayer-leader-box"> <p>പിതാവിനും പുത്രനും സമനായ പരിശുദ്ധാത്മാവേ</p> </div>
                     <div class="prayer-congregation-box"> <p>/ ഞങ്ങളിൽ വന്നു നിറയണമേ.</p> </div>
@@ -1288,22 +1121,18 @@
                     <div class="prayer-leader-box"> <p>വിശുദ്ധരുടെ ആനന്ദമേ</p> </div>
                     <div class="prayer-congregation-box"> <p>/ ഞങ്ങളെ ശുദ്ധീകരിക്കണമേ.</p> </div>
                 </div>
-
                 <div class="prayer-leader-box mt-4">
                     <p>പരിശുദ്ധാത്മാവേ, കരുണയുള്ളവനേ / <span class="prayer-congregation-text">ഞങ്ങളുടെമേൽ കരുണയായിരിക്കണമേ.</span></p>
                     <p>പരിശുദ്ധാത്മാവേ, കരുണയുള്ളവനേ / <span class="prayer-congregation-text">ഞങ്ങളുടെ പ്രാർത്ഥന കേൾക്കണമേ.</span></p>
                     <p class="mb-4">പരിശുദ്ധാത്മാവേ, കരുണയുള്ളവനേ / <span class="prayer-congregation-text">ഞങ്ങളെ അനുഗ്രഹിക്കണമേ...</span></p>
                 </div>
-
                 <div class="prayer-leader-box mt-4">
                     <p class="mb-4">പിതാവിനോടും പുത്രനോടും ഒന്നായിരിക്കുന്ന പരിശുദ്ധാത്മാവേ എല്ലാവരെയും വിശുദ്ധീകരിക്കുകയും സാന്ത്വനപ്പെടുത്തുകയും ചെയ്യുന്നവനേ അങ്ങയുടെ ദാസരുടെ ഹൃദയങ്ങളിൽ നിറയണമേ. അത്യുന്നതനായ പിതാവിൻ്റെ ദാനവും, ജീവൻ്റെ ഉറവയും ആത്മീയ അഭിഷേകവും, അഗ്നിയും, സ്നേഹവുമായവനേ.</p>
                 </div>
-
                 <div class="prayer-leader-box mt-4">
                     <h3 class="sub-heading-ml">പ്രാർത്ഥന</h3>
                     <p class="mb-4">പിതാവിനോടും പുത്രനോടുംകൂടെ ഒന്നായിരിക്കുന്ന പരിശുദ്ധാത്മാവേ, എല്ലാവരെയും വിശുദ്ധീകരിക്കുകയും ആശ്വസിപ്പിക്കുകയും ചെയ്യുന്നവനേ, അങ്ങയുടെ ദാസരുടെ ഹൃദയങ്ങളിൽ നിറയണമേ, അവിടുന്ന് അത്യുന്നതനായ ദൈവത്തിന്റെ ദാനവും ജീവൻ്റെ ഉറവിടവും ആദ്ധ്യാത്മിക അഭിഷേകവുമാണ്. അഗ്നിയും സ്നേഹവുമാണ്. അങ്ങുന്ന് പിതാവിന്റെ വാഗ്ദാനമാണ്. ഏഴു ദാനങ്ങളുടെ ഉടമസ്ഥനാണ്. അങ്ങയുടെ ദാനങ്ങളും ഫലങ്ങളുംകൊണ്ട് ഞങ്ങളെ സമ്പന്നരാക്കണമേ. വിശുദ്ധിയോടെ ചിന്തിക്കാനും വിനയത്തോടെ സംസാരിക്കാനും വിവേകത്തോടെ പ്രവർത്തിക്കാനുമുള്ള വരം നൽകണമേ. സഹനങ്ങളുടെയിടയിൽ സ്ഥിരോത്സാഹത്തോടെ പിടിച്ചു നിൽക്കാനും സംശയങ്ങളെ ദൂരീകരിക്കാനും ജീവിത്തിലെ മോഹഭംഗങ്ങളിൽ പ്രത്യാശ കൈവിടാതിരിക്കാനും സ്നേഹിക്കാനും മറ്റുള്ളവരിൽ അങ്ങയെ കാണാനും അനുഗ്രഹിക്കണമേ. സർവ്വശക്തനായ പിതാവിനോടും അവിടുത്തെ ഏകജാതനായ യേശുക്രിസ്തുവിനോടും കൂടെ എന്നെന്നും ജീവിച്ചുവാഴുന്ന അങ്ങേക്ക് എല്ലാ സ്‌തുതിയും മഹത്വവും കൃതജ്ഞതയും ഉണ്ടായിരിക്കട്ടെ. ആമ്മേൻ.</p>
                 </div>
-                
                 <p class="text-sm text-gray-600 mt-6">Source: Jesus Youth</p>
             </section>
         </main>
@@ -1316,7 +1145,7 @@
                 <span id="closeModalButton" class="modal-close-button">&times;</span>
             </div>
             <div id="modalPrayerContent" class="modal-body">
-                </div>
+            </div>
             <div class="modal-footer">
                 <button id="modalDoneButton" class="modal-done-button">
                     പൂർത്തിയായി
@@ -1345,16 +1174,12 @@
             if (window.innerWidth < 768 && !sidebar.classList.contains('hidden')) {
                 sidebar.classList.add('hidden');
             }
-            // Do not scroll main content to top when just switching sections,
-            // as intra-day navigation might rely on current scroll position if modal wasn't used.
-            // However, for modal, this is fine.
-            // document.querySelector('main').scrollTop = 0; 
         }
 
         function navigateToDay(targetDayId) {
             const navLinkElement = document.querySelector(`#sidebar .nav-link[href="#${targetDayId}"]`);
             showSection(targetDayId, navLinkElement);
-            document.querySelector('main').scrollTop = 0; // Scroll to top of day content
+            document.querySelector('main').scrollTop = 0; 
         }
         
         const prayerModal = document.getElementById('prayerModal');
@@ -1370,52 +1195,33 @@
 
             if (prayerSourceElement && prayerModal && modalPrayerTitle && modalPrayerContent) {
                 modalPrayerTitle.textContent = prayerTitle;
-                
-                // Clone the content to avoid moving it and to ensure styles are self-contained if needed
                 const clonedContent = prayerSourceElement.cloneNode(true);
-                
-                // If the cloned content is a main section (like 'litany'), it might have its own title.
-                // We want to avoid showing the main section title (e.g. "ലുത്തിനിയ") from the source
-                // if our modal title (e.g. "പരിശുദ്ധാത്മാവിനോടുള്ള ലുത്തീനിയ") already covers it.
-                // For simplicity, we'll just clone. If specific sub-elements need to be excluded,
-                // the cloning or content injection logic would need to be more granular.
-                // For now, we remove sub-headings from the cloned content if they are the first child,
-                // as the modal has its own title.
-                if (clonedContent.firstChild && clonedContent.firstChild.classList && clonedContent.firstChild.classList.contains('sub-heading-ml')) {
-                    //This check is too specific, better to just show the content as is from the source div.
-                    //clonedContent.removeChild(clonedContent.firstChild);
-                }
+                clonedContent.classList.remove('hidden-prayer-content'); // Make sure content is visible in modal
 
-
-                modalPrayerContent.innerHTML = ''; // Clear previous content
+                modalPrayerContent.innerHTML = ''; 
                 modalPrayerContent.appendChild(clonedContent);
                 
                 prayerModal.style.display = 'flex'; 
 
-                // If a mainSectionIdForSidebar is provided (for common prayers, litany, etc.)
-                // ensure the correct main section is highlighted in the sidebar.
                 if (mainSectionIdForSidebar) {
                     const navLinkForMainSection = document.querySelector(`#sidebar .nav-link[href="#${mainSectionIdForSidebar}"]`);
-                    if (navLinkForMainSection) {
-                         // Temporarily show the target main section to make the sidebar link active,
-                         // but the modal will overlay it.
-                        showSection(mainSectionIdForSidebar, navLinkForMainSection);
+                    if (navLinkForMainSection && !navLinkForMainSection.classList.contains('active-nav')) {
+                        const allNavLinks = document.querySelectorAll('#sidebar .nav-link');
+                        allNavLinks.forEach(link => link.classList.remove('active-nav'));
+                        navLinkForMainSection.classList.add('active-nav');
+                    }
+                } else {
+                    // Ensure the current day's sidebar link remains active if no mainSectionIdForSidebar is passed
+                    const currentActiveDaySection = document.querySelector('section.content-section.active[id^="day"]');
+                    if (currentActiveDaySection) {
+                        const currentDayNavLink = document.querySelector(`#sidebar .nav-link[href="#${currentActiveDaySection.id}"]`);
+                         if (currentDayNavLink && !currentDayNavLink.classList.contains('active-nav')) {
+                            const allNavLinks = document.querySelectorAll('#sidebar .nav-link');
+                            allNavLinks.forEach(link => link.classList.remove('active-nav'));
+                            currentDayNavLink.classList.add('active-nav');
+                        }
                     }
                 }
-                // Ensure the currently active day's link in the sidebar remains active
-                // This is tricky if mainSectionIdForSidebar changes the active section.
-                // The primary focus is the modal content.
-                // Let's re-activate the day section's link if we jumped to a common prayer section.
-                const activeDaySection = document.querySelector('.content-section.active[id^="day"]');
-                if (activeDaySection && mainSectionIdForSidebar && mainSectionIdForSidebar !== activeDaySection.id) {
-                    const activeDayNavLink = document.querySelector(`#sidebar .nav-link[href="#${activeDaySection.id}"]`);
-                    if (activeDayNavLink && !activeDayNavLink.classList.contains('active-nav')) {
-                        // This logic might conflict if we want the common prayer's section to be primary active.
-                        // For now, let's prioritize the common prayer's section in sidebar when modal is for common prayer.
-                    }
-                }
-
-
             } else {
                 console.error("Modal, title, content, or prayer source element not found:", prayerElementId);
             }
@@ -1447,7 +1253,6 @@
         }
 
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        // Initialize the first section (Introduction)
         const introLink = document.querySelector('#sidebar .nav-link[href="#introduction"]');
         if (introLink) showSection('introduction', introLink);
     </script>
